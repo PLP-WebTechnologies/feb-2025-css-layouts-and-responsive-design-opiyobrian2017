@@ -1,0 +1,114 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Bar */
+nav {
+    background-color: rgb(16, 44, 53);
+    color: #fff;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo {
+    height: 100px; /* fixed height for logo */
+    width: auto; /* fixed width for logo */
+}
+nav ul {
+    display: flex;
+    list-style: none;
+    justify-content: space-around;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Main Layout */
+.container {
+    display: flex; /*use flexbox for layout*/
+    gap: 20px; /* space between sidebar and content*/
+    height: 100vh; /* full height of the viewport */
+    overflow: hidden; /* prevent overflow */
+}
+
+.sidebar {
+    background-color: #f4f4f4;
+    padding: 20px;
+    width: 250px; /* fixed width for sidebar */
+    height: 100%; /* full height of the container */
+    overflow-y: auto; /* allow scrolling if content overflows */
+    flex-shrink: 0; /* prevent sidebar from shrinking */
+    gap: 10px; /* space between items */
+}
+
+.sidebar a{
+    color: #0d252f;
+    text-decoration: none;
+}
+
+.content {
+    background-color: #eaeaea;
+    padding: 20px;
+    flex: 1; /* take up remaining space */
+    overflow-y: auto; /* allow scrolling if content overflows */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* stack sidebar and content vertically */
+        height: auto; /* allow height to adjust based on content */
+    }
+
+    .sidebar {
+        width: 100%; /* full width for sidebar */
+        height: auto; /* allow height to adjust based on content */
+    }
+
+    .content {
+        width: 100%; /* full width for content */
+        flex: none; /* prevent flex-grow */
+        overflow-y: visible; /* allow content to overflow */
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px; /* space between items */
+    }
+    nav ul li {
+        width: 100%; /* make each item take the full width*/
+        text-align: center; /* center align text */
+    }
+    nav ul li a {
+        display: block; /* make links block elements */
+        padding: 10px; /* add padding for better touch targets */
+        background-color: rgb(16, 44, 53);
+        color: #ffffff; /*increase visibility of the text*/
+        border-bottom: 1px solid #cccccc; /* add a bottom border for separation */
+    }
+    nav ul li a:hover {
+        background-color: #2a6a7c; /* change background on hover */
+    }
+}
+
+@media (max-width: 480px) {
+    nav ul li {
+        margin: 5px 0;
+    }
+}
